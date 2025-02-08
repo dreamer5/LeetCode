@@ -1,0 +1,26 @@
+class Solution(object):
+    def isIsomorphic(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        w1=[] #letters in s
+        w2=[]#letters in t
+        for i in range(len(s)):
+            if s[i] not in w1 and t[i] not in w2:
+                w1.append(s[i])
+                w2.append(t[i])
+            elif s[i] in w1:
+                code=w1.index(s[i])
+                if(t[i]!=w2[code]):
+                    return False
+            else:
+                code=w2.index(t[i])
+                if(s[i]!=w1[code]):
+                    return False
+
+        return True
+
+
+        
